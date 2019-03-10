@@ -135,4 +135,6 @@ rm -Rf /root/tmp/ermu0420.github.io
 ![](http://118.24.21.49/image/2019/create-blog/git-remote.png)<br>
 3. jekyll运行开发服务并实时更新 bundle exec jekyll serve --watch
 4. 修改完成后推送到服务器自动化部署 git push deploy master 
+推送时可看见服务器在执行我们设置的命令。同时可在服务器中查看shell的执行日志
+![](http://118.24.21.49/image/2019/create-blog/git-push.png)<br>
 5. 同时将代码推送到GitHub 同步更新 git push origin master 
