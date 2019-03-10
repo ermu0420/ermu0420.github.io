@@ -1,17 +1,17 @@
 ---
 layout: post
-title: 如何搭建自己的静态博客
+title: 如何搭建并自动化部署自己的博客
 category: tool
-tags: [tool][blog]
+tags: [tool,blog]
 keywords: Jekyll，blog
 ---
 
-# 如何搭建自己的博客
+# 如何搭建并自动化部署自己的博客
 
 ## GitHub Pages 快速搭建
-文章参考:[纯洁的微笑的技术人如何快速搭建自己的博客](http://www.ityouknow.com/other/2018/09/16/create-blog.html)
+文章参考:纯洁的微笑的[技术人如何快速搭建自己的博客](http://www.ityouknow.com/other/2018/09/16/create-blog.html)
 
-1. 选择一个博客模板Fork，例如地址：https://github.com/ermu0420/ermu0420.github.io <br>
+1. 选择一个博客模板fork，例如地址：[https://github.com/ermu0420/ermu0420.github.io ](https://github.com/ermu0420/ermu0420.github.io)<br>
 ![](http://118.24.21.49/image/2019/create-blog/fork.png)<br>
 2. 设置 GitHub Pages <br>
 点击项目的Settings  然后滚动到 GitHub Pages 
@@ -32,16 +32,16 @@ keywords: Jekyll，blog
 5. 进入 https://username.github.io/ 博客就正常运行了<br>
 
 一个简单的博客到此就构建完成
-### 修改成指定域名  
+### GitHub Pages博客修改成自己域名  
 将自己的域名解析到地址 ` username.github.io ` 然后在项目GitHub Pages设置成自己的域名，同时配置_config.yml的`url:`为自己的域名。
 
 GitHub Pages 虽然搭建方便，但是不能被Baidu建检索，同时因为GitHub 是国外服务器，网络访问稳定性也不高。  
 为了解决这一系列问题，我将博客代码放置自己的Git仓库中，同时配置了自动部署更新，同时将构建更新的代码交给Nginx代理。
 
 ## 利用Jekyll开发自己的博客
-
-### Windows建立Jekyll开发环境 CentOs建立部署环境
-#### Windows安装Ruby+devkit
+ Jekyll [详细教程地址:](https://www.jekyll.com.cn/docs/home/)https://www.jekyll.com.cn/docs/home/
+ Windows建立开发环境 CentOs建立部署环境
+### Windows安装Ruby+devkit
 1. [下载Ruby+devkit：](https://rubyinstaller.org/downloads/) https://rubyinstaller.org/downloads/
 ![](http://118.24.21.49/image/2019/create-blog/ruby+devkit.png)<br>
 2. 安装 
@@ -49,8 +49,8 @@ GitHub Pages 虽然搭建方便，但是不能被Baidu建检索，同时因为Gi
 ![](http://118.24.21.49/image/2019/create-blog/MSYS2-install.png)<br>
 在安装是一定要勾选MSYS2 ，并且要安装MSYS2环境
 
-#### Linux 安装 Rvm+Ruby
-##### 安装Rvm
+### Linux 安装 Rvm+Ruby
+#### 安装Rvm
 ~~~
 [root@VM_0_17_centos ~]# gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 [root@VM_0_17_centos ~]# \curl -sSL https://get.rvm.io | bash -s stable --rails
@@ -61,7 +61,7 @@ GitHub Pages 虽然搭建方便，但是不能被Baidu建检索，同时因为Gi
 rvm 1.29.7 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://rvm.io]
 # 安装成功
 ~~~
-##### 安装Ruby
+#### 安装Ruby
 ~~~
 [root@VM_0_17_centos ~]# rvm requirements
 [root@VM_0_17_centos ~]# rvm list known 
@@ -71,7 +71,7 @@ rvm 1.29.7 (latest) by Michal Papis, Piotr Kuczynski, Wayne E. Seguin [https://r
 [root@VM_0_17_centos ~]# gem -v
 2.7.7
 ~~~
-### Windows 和 Linux 安装Jekyll 都是一样的命令
+### Windows和Linux安装Jekyll
 ~~~
 # 添加中国Ruby镜像
 gem sources --add https://gems.ruby-china.com/ --remove https://rubygems.org/
@@ -102,7 +102,7 @@ location / {
         }
 
 ~~~
-#### 配置 Git post-receive 钩子
+#### 配置Git post-receive钩子
 ~~~
 [root@VM_0_17_centos ~] cd /root/ermu0420.github.io.git/hooks/
 [root@VM_0_17_centos hooks]# cp post-receive.sample post-receive
@@ -129,7 +129,7 @@ rm -Rf /root/tmp/ermu0420.github.io
 # 最后给与脚本执行的权限
 [root@VM_0_17_centos ermu0420.github.io.git]# chmod +x post-receive
 ~~~
-#### Windows 开发以及推送
+### Windows开发以及推送
 1. 拉取GitHub上代码 git@github.com:ermu0420/ermu0420.github.io.git
 2. 加入自己服务器的远程仓库 git remote add origin ssh://root@www.xxx.com/root/ermu0420.github.io.git
 ![](http://118.24.21.49/image/2019/create-blog/git-remote.png)<br>
