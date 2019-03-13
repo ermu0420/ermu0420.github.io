@@ -61,11 +61,24 @@ yum install -y jenkins
 ~~~
  vi /etc/sysconfig/jenkins
 ~~~
+### Root 用户启动
+~~~
+ vim /etc/sysconfig/jenkins
+ 
+ JENKINS_USER="root"
+ 
+ chown -R root:root /var/lib/jenkins
+ chown -R root:root /var/cache/jenkins
+ chown -R root:root /var/log/jenkins
+~~~
+
 ### 启动
 ~~~
 service jenkins start/stop/restart
 ~~~
 初始密码在：/var/lib/jenkins/secrets/initialAdminPassword 
+
+
 ### 出错问题
 JAVA 环境
 vim  /etc/init.d/jenkins
