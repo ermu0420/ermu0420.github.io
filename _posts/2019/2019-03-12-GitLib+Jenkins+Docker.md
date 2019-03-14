@@ -6,8 +6,9 @@ tags: [GitLib，Jenkins,Docker]
 keywords: GitLib，Jenkins,Docker,持续集成
 ---
 # GitLib+Jenkins+Docker 持续集成方案
+![](http://118.24.21.49/image/2019/gitlib-jenkins-docker/flow.png)<br>
 
-## 安装GitLib
+## GitLib 安装
 [安装官方教程:https://www.gitlab.com.cn/installation/](https://www.gitlab.com.cn/installation/)
 ### 下载一些需要的依赖
 ~~~
@@ -50,7 +51,7 @@ inet_protocols = ipv4
 inet_interfaces = all  
 ~~~
 
-## 安装Jenkins 
+## Jenkins 安装
 ### 添加Jenkins库到yum库，下载Jenkins
 ~~~
 wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
@@ -61,17 +62,6 @@ yum install -y jenkins
 ~~~
  vi /etc/sysconfig/jenkins
 ~~~
-### Root 用户启动
-~~~
- vim /etc/sysconfig/jenkins
- 
- JENKINS_USER="root"
- 
- chown -R root:root /var/lib/jenkins
- chown -R root:root /var/cache/jenkins
- chown -R root:root /var/log/jenkins
-~~~
-
 ### 启动
 ~~~
 service jenkins start/stop/restart
@@ -83,7 +73,7 @@ service jenkins start/stop/restart
 JAVA 环境
 vim  /etc/init.d/jenkins
 candidates="
-/usr/soft/jdk1.8.0_144/bin/java #此处为加入的java路径
+/usr/soft/jdk1.8.0_144/bin/java #此处为加入的java路径 安装
 
 ## Docker
 ### 安装
@@ -128,7 +118,7 @@ systemctl enable docker
 ### 基本命令
 - docker images # 所有镜像
 - docker ps # 正在运行容器
-- docker ps # 所有容器
+- docker ps -a  # 所有容器
 - docker search # 搜索镜像
 - docker pull # 拉取
 - docker run # 运行一个容器
@@ -142,6 +132,19 @@ systemctl enable docker
 - docker stop # 停止容器
 - docker commit # 保存成一个新镜像
 - docker push # 上传镜像
+
+
+### Docker 配置 DOCKER_OPTS
+~~~
+Docker 服务器
+vim /usr/lib/systemd/system/docker.service
+ ExecStart=/usr/bin/dockerd-current -H tcp://0.0.0.0:2376 -H unix:///var/run/docker.sock \
+ # 重启
+ systemctl daemon-reload
+ service docker restart 
+~~~
+![](http://118.24.21.49/image/2019/gitlib-jenkins-docker/DOCKER_OPTS.png)<br>
+
 
 ### Docker-Compose 
 Windows:
@@ -158,4 +161,36 @@ PS C:\Windows\system32>docker-compose --version
 - docker stack ls # stack列表
 - docker stack services [name] #  services  in stack
 - docker stack rm [name]   # 删除stack
-- docker stack ps [name]  # tasks in stack
+- docker stack ps [name]  # tasks in stack 
+
+## Jenkins 配置 Docker
+[https://plugins.jenkins.io/docker-plugin](https://plugins.jenkins.io/docker-plugin)
+### Jenkins 运行 Docker 权限问题
+1.将jenkins用户加入docker组
+~~~
+sudo gpasswd -a jenkins docker
+sudo service jenkins restart
+~~~
+2.Jenkins用root权限启动
+~~~
+ vim /etc/sysconfig/jenkins
+ 
+ JENKINS_USER="root"
+ 
+ chown -R root:root /var/lib/jenkins
+ chown -R root:root /var/cache/jenkins
+ chown -R root:root /var/log/jenkins
+  service jenkins restart
+~~~
+### Jenkins 配置Docker云
+**Docker 所在服务器一定要配置 DOCKER_OPTS** <br>
+系统->设置->云->添加云
+![](http://118.24.21.49/image/2019/gitlib-jenkins-docker/add-docker-cloud.png)<br>
+### Jenkins 项目Post Steps配置Docker
+![](http://118.24.21.49/image/2019/gitlib-jenkins-docker/jenkins-post-steps-docker.png)<br>
+
+## 遇到的问题
+java.lang.IllegalStateException: Cannot list cloud for docker action
+![](http://118.24.21.49/image/2019/gitlib-jenkins-docker/cannot-list-cloud.png)<br>
+
+
