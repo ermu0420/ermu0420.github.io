@@ -8,7 +8,7 @@ keywords: Docker,Maven
 # docker-maven 插件使用
 本实例在spring-cloud-eureka用例的基础上进行配置docker-maven插件  
 
-[spring-cloud用例地址：]()  
+[spring-cloud用例](http://118.24.21.49/spring-cloud/2019/03/16/spring-cloud-eureka.html)  
 
 [源代码地址：https://github.com/ermu0420/docker-example/tree/master/docker-eureka-server](https://github.com/ermu0420/docker-example/tree/master/docker-eureka-server)
 ## 父POM中加入管理Maven Docker插件
@@ -252,4 +252,4 @@ Get https://localhost:6445/api?timeout=32s: EOF
     </configuration>
 </plugin>
 ~~~
-![](../../assets/images/2019/docker-aliyun-repo.png)
+![](http://118.24.21.49/assets/images/2019/docker/docker-aliyun-repo.png)

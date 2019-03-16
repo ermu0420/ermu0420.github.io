@@ -14,7 +14,7 @@ permalink: /tool
 
         <ul id="posts-list">
             {% for post in site.posts %}
-                {% if post.category=='tool' or post.keywords contains 'tool' %}
+                {% if post.category=='tool' or post.keywords contains 'tool' or post.keywords contains 'GitLib' or post.keywords contains 'Jenkins' %}
                 <li class="posts-list-item">
                     <div class="posts-content">
                         <span class="posts-list-meta">{{ post.date | date: "%Y-%m-%d" }}</span>

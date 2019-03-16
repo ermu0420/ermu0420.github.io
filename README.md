@@ -13,4 +13,4 @@
 
 ## 我的微信，欢迎添加交流
 
-![](http://118.24.21.49/image/wechart.png) 
+![](http://118.24.21.49/assets/images/wechart.png) 

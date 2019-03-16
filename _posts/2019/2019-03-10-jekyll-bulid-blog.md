@@ -12,14 +12,14 @@ keywords: Jekyll，blog
 文章参考:纯洁的微笑的[技术人如何快速搭建自己的博客](http://www.ityouknow.com/other/2018/09/16/create-blog.html)
 
 1. 选择一个博客模板fork，例如地址：[https://github.com/ermu0420/ermu0420.github.io ](https://github.com/ermu0420/ermu0420.github.io)<br>
-![](http://118.24.21.49/image/2019/create-blog/fork.png)<br>
+![](http://118.24.21.49/assets/images/2019/create-blog/fork.png)<br>
 2. 设置 GitHub Pages <br>
 点击项目的Settings  然后滚动到 GitHub Pages 
-![](http://118.24.21.49/image/2019/create-blog/setting-1.png)<br>
-![](http://118.24.21.49/image/2019/create-blog/setting-2.png)<br>
+![](http://118.24.21.49/assets/images/2019/create-blog/setting-1.png)<br>
+![](http://118.24.21.49/assets/images/2019/create-blog/setting-2.png)<br>
 3. 重命名项目  
 点开Settings,按钮打开设置页面，重命名项目名称为：[username].github.io。点击Rename
-![](http://118.24.21.49/image/2019/create-blog/setting-3.png)<br>
+![](http://118.24.21.49/assets/images/2019/create-blog/setting-3.png)<br>
     > username 就是你github 的登录名
 
 4. 修改项目配置文件 _config.yml然后提交  
@@ -28,7 +28,7 @@ keywords: Jekyll，blog
     github_url: https://github.com/username
     url: https://username.github.io
     ~~~
-    ![](http://118.24.21.49/image/2019/create-blog/setting-4.png)<br>
+    ![](http://118.24.21.49/assets/images/2019/create-blog/setting-4.png)<br>
 5. 进入 https://username.github.io/ 博客就正常运行了<br>
 
 一个简单的博客到此就构建完成
@@ -43,10 +43,10 @@ GitHub Pages 虽然搭建方便，但是不能被Baidu建检索，同时因为Gi
  Windows建立开发环境 CentOs建立部署环境
 ### Windows安装Ruby+devkit
 1. [下载Ruby+devkit：](https://rubyinstaller.org/downloads/) https://rubyinstaller.org/downloads/
-![](http://118.24.21.49/image/2019/create-blog/ruby+devkit.png)<br>
+![](http://118.24.21.49/assets/images/2019/create-blog/ruby+devkit.png)<br>
 2. 安装 
-![](http://118.24.21.49/image/2019/create-blog/ruby+devkit-install.png)<br>
-![](http://118.24.21.49/image/2019/create-blog/MSYS2-install.png)<br>
+![](http://118.24.21.49/assets/images/2019/create-blog/ruby+devkit-install.png)<br>
+![](http://118.24.21.49/assets/images/2019/create-blog/MSYS2-install.png)<br>
 在安装是一定要勾选MSYS2 ，并且要安装MSYS2环境
 
 ### Linux 安装 Rvm+Ruby
@@ -132,9 +132,9 @@ rm -Rf /root/tmp/ermu0420.github.io
 ### Windows开发以及推送
 1. 拉取GitHub上代码 git@github.com:ermu0420/ermu0420.github.io.git
 2. 加入自己服务器的远程仓库 git remote add origin ssh://root@www.xxx.com/root/ermu0420.github.io.git
-![](http://118.24.21.49/image/2019/create-blog/git-remote.png)<br>
+![](http://118.24.21.49/assets/images/2019/create-blog/git-remote.png)<br>
 3. jekyll运行开发服务并实时更新 bundle exec jekyll serve --watch
 4. 修改完成后推送到服务器自动化部署 git push deploy master 
 推送时可看见服务器在执行我们设置的命令。同时可在服务器中查看shell的执行日志
-![](http://118.24.21.49/image/2019/create-blog/git-push.png)<br>
+![](http://118.24.21.49/assets/images/2019/create-blog/git-push.png)<br>
 5. 同时将代码推送到GitHub 同步更新 git push origin master 
