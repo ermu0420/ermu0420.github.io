@@ -55,12 +55,6 @@ paginate_path: 'page:num'
 
 # Navigation. top menu list
 menus:
-
-  -
-    href: /projectManage.html
-    label: 项目管理
-    target: _self
-
   -
     href: /softExam.html
     label: 软考之路
@@ -152,8 +146,8 @@ labels:
     target: _blank
 
   -
-    href: /python.html
-    label: Python  
+    href: /vue.html
+    label: Vue
     target: _blank
 
 # selected articles

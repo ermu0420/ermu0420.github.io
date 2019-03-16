@@ -1,11 +1,11 @@
 ---
 layout: post
 title: spring-cloud(一)：Eureka注册中心
-category: spring-cloud
-tags: [spring-cloud]
+category: springcloud
+tags: [springcloud]
 keywords: spring cloud,spring-cloud
 ---
-### 父pom
+## 父pom配置
 ~~~ xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -144,7 +144,7 @@ keywords: spring cloud,spring-cloud
 </project>
 ~~~
 
-### eureka项目Pom
+## eureka项目Pom文件
 ~~~ xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -189,7 +189,7 @@ keywords: spring cloud,spring-cloud
 
 ~~~
 
-### application.yml 配置文件
+## application.yml 配置文件
 ~~~ javascript
 spring:
   application:
@@ -232,7 +232,7 @@ eureka:
       register-with-eureka: true
 
 ~~~
-### 启动类
+## 启动类
 ~~~ java
 package com.github.ermu.eureka;
 
