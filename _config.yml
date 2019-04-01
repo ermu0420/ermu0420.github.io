@@ -124,12 +124,6 @@ navs:
     target: _self
 # labels. my blog key words
 labels:
-
-  -
-    href: /nosql.html
-    label: NoSql
-    target: _blank
-
   -
     href: /docker.html
     label: Docker
@@ -150,6 +144,10 @@ labels:
     label: Vue
     target: _blank
 
+  - href: /db.html
+    label: DB
+    target: _blank
+
 # selected articles
 classes:
   -
@@ -160,7 +158,6 @@ classes:
     href: /java.html
     name: Java 系列文章
     describe: Java 之根基，Java 程序员必学
-
 
 # ---------------- #
 #       RSS        #
