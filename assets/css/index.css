@@ -37,3 +37,62 @@
 .site-header .site-header-nav-item a {
     color: #9acfea;
 }
+
+#search-input {
+    width: 90%;
+    height: 35px;
+    color: #333;
+    background-color: rgba(227,231,236,.2);
+    line-height: 35px;
+    padding:0px 16px;
+    border: 1px solid #c0c0c0;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 17px;
+    outline: none;
+    box-sizing: border-box;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: rgb(102, 175, 233);
+    background-color: #fff;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #007fff;
+}
+
+.post-meta {
+    font-family: Lora,'Times New Roman',serif;
+    color: gray;
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 0;
+}
+#search-container{
+    width: 400px;
+}
+#results-container{
+    max-width:400px;
+    padding:10px ;
+}
+#results-container li{
+    list-style-type:none;
+}
+
+.tags {
+    margin-bottom: -5px;
+}
+.sidebar-container .tags a {
+    border-color: #bfbfbf;
+    margin-right: 5px;
+    display: inline-block;
+    border-radius: 999em;
+    padding: 0 10px;
+    color: #fff;
+    line-height: 24px;
+    font-size: 12px;
+    text-decoration: none;
+}
+.sidebar-container a {
+    color: #bfbfbf!important;
+}
